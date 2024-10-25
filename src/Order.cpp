@@ -25,15 +25,27 @@ void Order::addItem(Item tItem){
     setTotalPrice(tItem);
 }
 
-
+void Order::setCustomer(Customer tCustomer){
+    customer = tCustomer;
+}
 
 
 //Getters
-
+std::string Order::getID() const{
+    return ID;
+}
 double Order::getTotalPrice() const{
     return totalPrice;
 }
 
 Item Order::getItem(int pos) const{
     return Items.at(pos);
+}
+
+std::vector <Item> Order::getItems() const{
+    return Items;
+}
+
+Customer getCustomer(){
+    return customer;
 }

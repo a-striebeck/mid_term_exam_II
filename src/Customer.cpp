@@ -8,17 +8,16 @@ Customer::~Customer()
 {
 }
 
-// Setters, and addOrder()
-    void Customer::addOrder(Order tOrder){
-        orders.push_back(tOrder);
-    }
-    void Customer::setID(std::string tID){
+// Setters
+void Customer::setID(std::string tID){
         ID = tID;
     }
-    void Customer::setName(std::string tName){
+
+void Customer::setName(std::string tName){
         name = tName;
     }
-    void Customer::setLastName(std::string tLastName){
+
+void Customer::setLastName(std::string tLastName){
         lastName = tLastName;
     }
 
@@ -32,7 +31,4 @@ Customer::~Customer()
     }
     std::string Customer::getLastName() const{
         return lastName;
-    }
-    Order Customer::getOrder(int pos){
-        return orders.at(pos);
     }
