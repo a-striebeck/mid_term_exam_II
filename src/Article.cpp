@@ -2,9 +2,7 @@
 
 Article::Article(std::string tID, std::string tName, double tPrice) : ID(tID), name(tName), price(tPrice) {}
 
-Article::~Article()
-{
-}
+Article::~Article(){}
 //Setters
 void Article::setID(std::string tID){
     ID = tID;

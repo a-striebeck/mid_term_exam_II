@@ -1,3 +1,7 @@
+#ifndef ITEM_H
+#define ITEM_H
+
+
 #include <Article.h>
 
 class Item
@@ -6,13 +10,15 @@ private:
     Article product;
     int quantity;
     double price;
+    //Private Setter
+    void setPrice();
 public:
-    Item(Article tArticle);
+    Item(const Article& tArticle, int tQuantity);;
     ~Item();
 
     // Setters
     void setQuantity(int tQuantity);
-    void setPrice();
+    void setArticle(Article tArticle);
 
     // Getters
     Article getArticle() const;
@@ -20,4 +26,4 @@ public:
     double getPrice()const;
 };
 
-
+#endif // ITEM_H

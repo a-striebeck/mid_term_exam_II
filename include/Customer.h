@@ -1,6 +1,8 @@
+#ifndef CUSTOMER_H
+#define CUSTOMER_H
+
 #include <vector>
 #include <iostream>
-#include <Order.h>
 
 class Customer
 {
@@ -26,4 +28,5 @@ public:
 
 };
 
+#endif // CUSTOMER_H
 

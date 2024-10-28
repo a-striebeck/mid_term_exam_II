@@ -1,3 +1,6 @@
+#ifndef ARTICLE_H
+#define ARTICLE_H
+
 #include <iostream>
 
 class Article
@@ -22,3 +25,4 @@ public:
 };
 
 
+#endif // ARTICLE_H

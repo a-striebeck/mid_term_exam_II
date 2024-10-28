@@ -1,3 +1,6 @@
+#ifndef ORDER_H
+#define ORDER_H
+
 #include <vector>
 #include <iostream>
 #include <Item.h>
@@ -13,19 +16,20 @@ private:
 
     //Private setter, since I don't that this method is available outside the class.
     //It is ment to be called only when a new Item is added to the order.
-    void setTotalPrice(Item tItem);
+    void setTotalPrice(const Item& tItem);
 
 public:
-    Order();
+    Order(const Customer& tCustomer); 
     ~Order();
     //Setters
-    void addItem(Item tItem);    
+    void addItem(const Item& tItem);    
     void setCustomer(Customer tCustomer);
     //Getters
-    Customer getCustomer();
+    Customer getCustomer() const;
     std::string getID() const;
     double getTotalPrice() const;
     Item getItem(int pos) const;
     std::vector <Item> getItems() const;
 };
 
+#endif // ORDER_H

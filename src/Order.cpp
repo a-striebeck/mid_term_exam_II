@@ -1,16 +1,14 @@
 #include <Order.h>
 
+Order::Order(const Customer& tCustomer) : customer(tCustomer) {}
 
-Order::Order()
-{
-}
 
 Order::~Order()
 {
 }
 //Setters
 
-void Order::setTotalPrice(Item tItem){
+void Order::setTotalPrice(const Item& tItem){
     totalPrice += tItem.getPrice();
 }
 
@@ -20,7 +18,7 @@ Although addItem() is not a setter itself, it adds elements to the array, so I p
 and the getters.
 
 */
-void Order::addItem(Item tItem){
+void Order::addItem(const Item& tItem){
     Items.push_back(tItem);
     setTotalPrice(tItem);
 }
@@ -46,6 +44,6 @@ std::vector <Item> Order::getItems() const{
     return Items;
 }
 
-Customer getCustomer(){
+Customer Order::getCustomer() const{
     return customer;
 }
