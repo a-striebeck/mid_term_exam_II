@@ -1,6 +1,5 @@
 #include <Employee.h>
 
-// Constructor
 Employee::Employee(){}
 Employee::~Employee(){}
 // Getters

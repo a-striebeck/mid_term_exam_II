@@ -1,7 +1,6 @@
 #include "ConsoleProviderManager.h"
 #include <algorithm>
 
-// Método para crear un nuevo proveedor
 void ConsoleProviderManager::createProvider(std::vector<std::shared_ptr<Provider>>& providers) {
     std::string id, name, lastName;
     std::cout << "Introduce el ID del proveedor: ";
@@ -11,28 +10,27 @@ void ConsoleProviderManager::createProvider(std::vector<std::shared_ptr<Provider
     std::cout << "Introduce el apellido del proveedor: ";
     std::cin >> lastName;
 
-    // Crea una instancia de Proveedor y le asigna los valores
+    
     auto newProvider = std::make_shared<Provider>();
     newProvider->setID(id);
     newProvider->setName(name);
     newProvider->setLastName(lastName);
     
-    // La guarda en el vector recibido como argumento
+
     providers.push_back(newProvider);
     std::cout << "Proveedor creado exitosamente.\n";
 }
 
-// Método privado para buscar un proveedor por ID en el vector proporcionado
+
 std::shared_ptr<Provider> ConsoleProviderManager::searchProviderByID(const std::vector<std::shared_ptr<Provider>>& providers, const std::string& id) const {
     for (const auto& provider : providers) {
         if (provider->getID() == id) {
             return provider;
         }
     }
-    return nullptr; // Retorna nullptr si no se encuentra el proveedor
+    return nullptr; 
 }
 
-// Método para buscar y mostrar un proveedor
 void ConsoleProviderManager::searchProvider(const std::vector<std::shared_ptr<Provider>>& providers) const {
     std::string id;
     std::cout << "Introduce el ID del proveedor a buscar: ";
@@ -49,7 +47,6 @@ void ConsoleProviderManager::searchProvider(const std::vector<std::shared_ptr<Pr
     }
 }
 
-// Método para actualizar un proveedor
 void ConsoleProviderManager::updateProvider(std::vector<std::shared_ptr<Provider>>& providers) {
     std::string id;
     std::cout << "Introduce el ID del proveedor a modificar: ";
@@ -74,7 +71,6 @@ void ConsoleProviderManager::updateProvider(std::vector<std::shared_ptr<Provider
     }
 }
 
-// Método para eliminar un proveedor
 void ConsoleProviderManager::deleteProvider(std::vector<std::shared_ptr<Provider>>& providers) {
     std::string id;
     std::cout << "Introduce el ID del proveedor a eliminar: ";
@@ -90,7 +86,6 @@ void ConsoleProviderManager::deleteProvider(std::vector<std::shared_ptr<Provider
     }
 }
 
-// Método para mostrar las órdenes asociadas a un proveedor
 void ConsoleProviderManager::showProviderOrders(const std::vector<Order>& orders, const std::string& providerID) const {
     std::cout << "Órdenes para el proveedor ID " << providerID << ":\n";
     bool found = false;

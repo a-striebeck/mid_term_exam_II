@@ -1,9 +1,6 @@
 #include <ConsoleOrderManager.h>
 #include <iostream>
 
-ConsoleOrderManager::ConsoleOrderManager() {}
-
-ConsoleOrderManager::~ConsoleOrderManager() {}
 
 void ConsoleOrderManager::addItemToOrder(Order& tOrder, const std::vector<Article>& articles) {
     std::string articleID;
