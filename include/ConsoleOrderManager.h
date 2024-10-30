@@ -1,20 +1,20 @@
-#ifndef ORDER_MANAGER_H
-#define ORDER_MANAGER_H
+#ifndef CONSOLE_ORDER_MANAGER_H
+#define CONSOLE_ORDER_MANAGER_H
 
 #include <Order.h>
-#include <Customer.h>
+#include <Provider.h>
 #include <vector>
 
 
-class OrderManager {
+class ConsoleOrderManager {
 private:
     static void addItemToOrder(Order& tOrder, const std::vector<Article>& articles);
     static bool findArticleByID(const std::string& articleID, const std::vector<Article>& articles, Article& foundArticle);
 public:
-    OrderManager();
-    ~OrderManager();
+    ConsoleOrderManager();
+    ~ConsoleOrderManager();
 
-    static Order createNewOrder(const std::string& ID, const Customer& tCustomer, const std::vector<Article>& articles);
+    static Order createNewOrder(const std::string& ID, const Provider& tProvider, const Employee& tEmployee, const std::vector<Article>& articles);
     static void showOrderInfo(const Order& tOrder);
 };
 

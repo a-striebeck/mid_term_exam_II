@@ -1,10 +1,10 @@
-#ifndef CUSTOMER_H
-#define CUSTOMER_H
+#ifndef PROVIDER_H
+#define PROVIDER_H
 
 #include <vector>
 #include <iostream>
 
-class Customer
+class Provider
 {
 private:
 
@@ -13,8 +13,8 @@ private:
     std::string lastName;
 
 public:
-    Customer();
-    ~Customer();
+    Provider();
+    ~Provider();
 
     // Setters, and addOrder()
     void setID(std::string tID);
@@ -28,5 +28,5 @@ public:
 
 };
 
-#endif // CUSTOMER_H
+#endif // Provider_H
 

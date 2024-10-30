@@ -1,37 +1,59 @@
 #include <TestEvaluator.hpp>
 #include <Order.h>
-#include <Customer.h>
+#include <Provider.h>
 #include <Article.h>
 #include <Item.h>
+#include <Employee.h> 
 
-void testOrderAndCustomer() {
+void testOrderAndProvider() {
     TestEvaluator te;
-    te.title("Order and Customer Tests");
+    te.title("Order and Provider Tests");
 
-    // Crear cliente de prueba
-    Customer testCustomer;
-    testCustomer.setID("123");
-    testCustomer.setName("Juan");
-    testCustomer.setLastName("Perez");
+    // Arrange
+    Provider testProvider;
+    testProvider.setID("123");
+    testProvider.setName("Juan");
+    testProvider.setLastName("Perez");
 
-    // Crear artículo de prueba
-    Article article("001", "Lipstick", 15.0);
+    Article article("001", "Guantes", 15.0);
     Item item(article, 2); // Cantidad: 2
 
-    // Crear orden y agregar ítem
-    Order order(testCustomer);
+    // Act
+    Order order(testProvider);
     order.addItem(item);
 
-    // Pruebas
-    te.evaluate("Customer ID is '123'", testCustomer.getID() == "123");
-    te.evaluate("Customer Name is 'Juan'", testCustomer.getName() == "Juan");
+    // Assert
+    te.evaluate("Provider ID is '123'", testProvider.getID() == "123");
+    te.evaluate("Provider Name is 'Juan'", testProvider.getName() == "Juan");
     te.evaluate("Order total price is $30", order.getTotalPrice() == 30.0);
     
-    // Resumen de la prueba
+    // Result
+    te.summary();
+}
+
+void testEmployee(){
+    TestEvaluator te;
+    te.title("New Employee Test");
+
+    //Arrange  
+    Employee testEmployee;
+
+    //Act
+    testEmployee.setID("003");
+    testEmployee.setName("Jose");
+    testEmployee.setLastName("Luis");
+
+    //Assert   
+
+    te.evaluate("Employee ID is 003", testEmployee.getID() == "003");
+    te.evaluate("Employee Name is Jose", testEmployee.getName() == "Jose");
+    te.evaluate("Employee Last Name is Luis", testEmployee.getLastName() == "Luis");
+
     te.summary();
 }
 
 int main() {
-    testOrderAndCustomer();
+    testOrderAndProvider();
+    testEmployee();
     return 0;
 }

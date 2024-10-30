@@ -1,11 +1,11 @@
-#include <OrderManager.h>
+#include <ConsoleOrderManager.h>
 #include <iostream>
 
-OrderManager::OrderManager() {}
+ConsoleOrderManager::ConsoleOrderManager() {}
 
-OrderManager::~OrderManager() {}
+ConsoleOrderManager::~ConsoleOrderManager() {}
 
-void OrderManager::addItemToOrder(Order& tOrder, const std::vector<Article>& articles) {
+void ConsoleOrderManager::addItemToOrder(Order& tOrder, const std::vector<Article>& articles) {
     std::string articleID;
     Item item(Article("", "", 0.0), 0);
     std::cout << "Ingrese ID del articulo: ";
@@ -26,7 +26,7 @@ void OrderManager::addItemToOrder(Order& tOrder, const std::vector<Article>& art
     tOrder.addItem(item);
 }
 
-bool OrderManager::findArticleByID(const std::string& articleID, const std::vector<Article>& articles, Article& foundArticle) {
+bool ConsoleOrderManager::findArticleByID(const std::string& articleID, const std::vector<Article>& articles, Article& foundArticle) {
     for (const auto& article : articles) {
         if (articleID == article.getID()) {
             foundArticle = article;
@@ -36,9 +36,9 @@ bool OrderManager::findArticleByID(const std::string& articleID, const std::vect
     return false;
 }
 
-Order OrderManager::createNewOrder(const std::string& ID, const Customer& tCustomer, const std::vector<Article>& articles) {
+Order ConsoleOrderManager::createNewOrder(const std::string& ID, const Provider& tProvider, const Employee& tEmployee, const std::vector<Article>& articles) {
     bool newItem = true;
-    Order tOrder(tCustomer);
+    Order tOrder(tProvider, tEmployee);
 
     do {
         addItemToOrder(tOrder, articles);
@@ -49,10 +49,10 @@ Order OrderManager::createNewOrder(const std::string& ID, const Customer& tCusto
     return tOrder;
 }
 
-void OrderManager::showOrderInfo(const Order& tOrder) {
+void ConsoleOrderManager::showOrderInfo(const Order& tOrder) {
     std::cout << "Order ID: " << tOrder.getID() << std::endl;
-    Customer tCustomer = tOrder.getCustomer();
-    std::cout << "Cliente: " << tCustomer.getName() << " " << tCustomer.getLastName() << std::endl;
+    Provider tProvider = tOrder.getProvider();
+    std::cout << "Proveedor: " << tProvider.getName() << " " << tProvider.getLastName() << std::endl;
 
     for (const auto& item : tOrder.getItems()) {
         Article tArticle = item.getArticle();

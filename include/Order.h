@@ -4,14 +4,16 @@
 #include <vector>
 #include <iostream>
 #include <Item.h>
-#include <Customer.h>
+#include <Employee.h>
+#include <Provider.h>
 
 class Order
 {
 private:
     std::string ID;
-    Customer customer;
-    std::vector <Item> Items;
+    Provider provider;
+    Employee employee;
+    std::vector <Item> items;
     double totalPrice;
 
     //Private setter, since I don't that this method is available outside the class.
@@ -19,16 +21,19 @@ private:
     void setTotalPrice(const Item& tItem);
 
 public:
-    Order(const Customer& tCustomer); 
+    Order(const Provider& tProvider, const Employee& tEmployee); 
     ~Order();
+
     //Setters
     void addItem(const Item& tItem);    
-    void setCustomer(Customer tCustomer);
+    void setProvider(const Provider& tProvider);
+    void setEmployee(const Employee& tEmployee);
+
     //Getters
-    Customer getCustomer() const;
+    Provider getProvider() const;
+    Employee getEmploye() const;
     std::string getID() const;
     double getTotalPrice() const;
-    Item getItem(int pos) const;
     std::vector <Item> getItems() const;
 };
 

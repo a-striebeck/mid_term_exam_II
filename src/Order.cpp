@@ -1,6 +1,6 @@
 #include <Order.h>
 
-Order::Order(const Customer& tCustomer) : customer(tCustomer) {}
+Order::Order(const Provider& tProvider, const Employee& tEmployee) : provider(tProvider), employee(tEmployee){}
 
 
 Order::~Order()
@@ -19,31 +19,37 @@ and the getters.
 
 */
 void Order::addItem(const Item& tItem){
-    Items.push_back(tItem);
-    setTotalPrice(tItem);
+    items.push_back(tItem);
 }
 
-void Order::setCustomer(Customer tCustomer){
-    customer = tCustomer;
+void Order::setProvider(const Provider& tProvider){
+    provider = tProvider;
 }
-
+void Order::setEmployee(const Employee& tEmployee){
+    employee = tEmployee;
+}
 
 //Getters
 std::string Order::getID() const{
     return ID;
 }
-double Order::getTotalPrice() const{
-    return totalPrice;
+
+double Order::getTotalPrice() const {
+    double total = 0.0;
+    for (const auto& item : items) {
+        total += item.getArticle().getPrice() * item.getQuantity();
+    }
+    return total;
 }
 
-Item Order::getItem(int pos) const{
-    return Items.at(pos);
+Employee Order::getEmploye() const{
+    return employee;
 }
 
 std::vector <Item> Order::getItems() const{
-    return Items;
+    return items;
 }
 
-Customer Order::getCustomer() const{
-    return customer;
+Provider Order::getProvider() const{
+    return provider;
 }
