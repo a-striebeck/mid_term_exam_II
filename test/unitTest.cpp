@@ -6,8 +6,8 @@
 #include <Employee.h> 
 
 void testOrderAndProvider() {
-    TestEvaluator te;
-    te.title("Order and Provider Tests");
+    TestEvaluator test;
+    test.title("Order Test");
 
     // Arrange
     Provider testProvider;
@@ -29,19 +29,19 @@ void testOrderAndProvider() {
     order.addItem(item);
 
     // Assert
-    te.evaluate("Provider ID is '123'", testProvider.getID() == "123");
-    te.evaluate("Provider Name is 'Juan'", testProvider.getName() == "Juan");
-    te.evaluate("Employee ID is '416'", testEmployee.getID() == "416");
-    te.evaluate("Employee Name is 'Agustin'", testEmployee.getName() == "Agustin");
-    te.evaluate("Order total price is $30", order.getTotalPrice() == 30.0);
+    test.evaluate("Provider ID is '123'", testProvider.getID() == "123");
+    test.evaluate("Provider Name is 'Juan'", testProvider.getName() == "Juan");
+    test.evaluate("Employee ID is '416'", testEmployee.getID() == "416");
+    test.evaluate("Employee Name is 'Agustin'", testEmployee.getName() == "Agustin");
+    test.evaluate("Order total price is $30", order.getTotalPrice() == 30.0);
     
     // Result
-    te.summary();
+    test.summary();
 }
 
 void testEmployee(){
-    TestEvaluator te;
-    te.title("New Employee Test");
+    TestEvaluator test;
+    test.title("New Employee Test");
 
     //Arrange  
     Employee testEmployee;
@@ -53,11 +53,11 @@ void testEmployee(){
 
     //Assert   
 
-    te.evaluate("Employee ID is 003", testEmployee.getID() == "003");
-    te.evaluate("Employee Name is Jose", testEmployee.getName() == "Jose");
-    te.evaluate("Employee Last Name is Luis", testEmployee.getLastName() == "Luis");
+    test.evaluate("Employee ID is 003", testEmployee.getID() == "003");
+    test.evaluate("Employee Name is Jose", testEmployee.getName() == "Jose");
+    test.evaluate("Employee Last Name is Luis", testEmployee.getLastName() == "Luis");
 
-    te.summary();
+    test.summary();
 }
 
 int main() {
